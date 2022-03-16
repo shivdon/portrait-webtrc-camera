@@ -26,7 +26,7 @@ export const gettingMedia = async () => {
       height: { min: 400, ideal: 1080 },
       aspectRatio: 1.777777778,
       frameRate: { max: 60, min: 10 },
-      facingMode: { exact: "environment" },
+      facingMode: { ideal: "environment" },
     };
     try {
       media = await navigator.mediaDevices.getUserMedia(constraints);
