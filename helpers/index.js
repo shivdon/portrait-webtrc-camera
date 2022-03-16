@@ -6,9 +6,8 @@ export const gettingMedia = async () => {
   const filteredDevices = devices.filter(
     (device) => device.kind === "videoinput"
   );
-  const deviceInfo = filteredDevices.find(
-    (device) => device.label.includes("WebCam") || device.label.includes("back")
-  );
+  const deviceInfo =
+    filteredDevices.length > 1 ? filteredDevices[1] : filteredDevices[0];
   console.log(deviceInfo);
   if (
     !supports["width"] ||
