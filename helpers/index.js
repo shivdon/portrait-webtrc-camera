@@ -1,6 +1,15 @@
 export const gettingMedia = async () => {
   let media;
   let supports = navigator.mediaDevices.getSupportedConstraints();
+  const devices = await navigator.mediaDevices.enumerateDevices();
+  console.log(devices);
+  const filteredDevices = devices.filter(
+    (device) => device.kind === "videoinput"
+  );
+  const deviceInfo = filteredDevices.find(
+    (device) => device.label.includes("WebCam") || device.label.includes("back")
+  );
+  console.log(deviceInfo);
   if (
     !supports["width"] ||
     !supports["height"] ||
@@ -13,6 +22,7 @@ export const gettingMedia = async () => {
   } else {
     let constraints = {
       video: true,
+      deviceId: deviceInfo.deviceId,
       width: { min: 640, ideal: 1920, max: 1920 },
       height: { min: 400, ideal: 1080 },
       aspectRatio: 1.777777778,
@@ -23,7 +33,7 @@ export const gettingMedia = async () => {
       media = await navigator.mediaDevices.getUserMedia(constraints);
       console.log(
         supports,
-        navigator.mediaDevices.enumerateDevices(),
+
         media.getVideoTracks(),
         media.getVideoTracks()[0].getCapabilities(),
         media.getVideoTracks()[0].getConstraints(),
@@ -36,7 +46,8 @@ export const gettingMedia = async () => {
   media.getVideoTracks()[0].applyConstraints({
     width: media.getVideoTracks()[0].getCapabilities().width.max,
     height: media.getVideoTracks()[0].getCapabilities().height.max,
-    facingMode: "environment",
   });
+
+  console.log(media.getVideoTracks()[0].getSettings());
   return media;
 };
