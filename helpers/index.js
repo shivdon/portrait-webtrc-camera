@@ -22,7 +22,7 @@ export const gettingMedia = async () => {
     let constraints = {
       video: {
         height: { min: 400, ideal: 1080 },
-        width: { min: 640, ideal: maxWidth, max: maxWidth },
+        width: { min: 640, ideal: 1920, max: 1920 },
         aspectRatio: { exact: 1.777777778 },
         frameRate: { max: 60, min: 10 },
         facingMode: { ideal: "environment" },
