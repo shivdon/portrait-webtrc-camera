@@ -1,12 +1,10 @@
 .container {
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
 }
 
 .videoPlayer {
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
   object-fit: cover;
 }
@@ -17,6 +15,7 @@
   width: 100vw;
   height: 100vh;
   top: 0;
+  bottom: 0;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -27,4 +26,14 @@
   margin-bottom: 5%;
   border-radius: 100%;
   font-size: 3vw;
+}
+
+.image {
+  position: absolute;
+  z-index: 900;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  display: flex;
 }

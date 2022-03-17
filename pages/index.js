@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { gettingMedia } from "../helpers";
 import styles from "../styles/Home.module.css";
@@ -52,6 +53,9 @@ export default function Home() {
             height: "100%",
           }}
         />
+        <div className={styles.image}>
+          <img src="/front.svg" />
+        </div>
         <div className={styles.buttonWrapper}>
           <button onClick={() => videoRef.current.play()}>Reset</button>
 
