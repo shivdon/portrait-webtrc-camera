@@ -21,9 +21,9 @@ export const gettingMedia = async () => {
   } else {
     let constraints = {
       video: {
-        height: { min: 480, ideal: 1080,  max: 4320 },
-        width: { min: 640, ideal: 1920,  max: 7680 },
-        aspectRatio: { exact: 1.777777778 },
+//         height: { min: 480, ideal: 1080,  max: 4320 },
+//         width: { min: 640, ideal: 1920,  max: 7680 },
+//         aspectRatio: { exact: 1.777777778 },
         frameRate: { max: 60, min: 10 },
         facingMode: { ideal: "environment" },
       },
